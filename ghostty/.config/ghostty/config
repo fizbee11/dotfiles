@@ -1,0 +1,18 @@
+# font
+font-size = 14
+
+# keybind
+keybind = alt+t=new_tab
+
+
+shell-integration = bash
+
+
+copy-on-select = true
+window-inherit-working-directory = true
+maximize = true
+clipboard-trim-trailing-spaces = true
+clipboard-write = deny
+clipboard-read = deny
+
+
