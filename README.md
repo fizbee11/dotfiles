@@ -7,4 +7,10 @@ This repo contains dotfiles for:
 - Swaync
 - Alacrittty
 - Kitty
-
+- Bash
+- Fastfetch
+- Neofetch
+- Foot
+- Ghostty
+- Git
+- Vim
