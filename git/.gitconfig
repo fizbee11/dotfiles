@@ -1,0 +1,19 @@
+# ~/.gitconfig
+[includeIf "gitdir:~/dev/home/"] # include for all .git projects under personnal/
+path = ~/dev/home/.gitconfig-home
+
+[includeIf "gitdir:~/dotfiles"] # include for all .git projects under personnal/
+path = ~/dev/home/.gitconfig-home
+
+[includeIf "gitdir:~/dev/prof/"] # include for all .git projects under personnal/
+path = ~/dev/prof/.gitconfig-prof
+
+[includeIf "gitdir:~/dev/work/"] # include for all .git projects under personnal/
+path = ~/dev/work/.gitconfig-work
+
+[core]
+excludesfile = ~/.gitignore      # valid everywhere
+[safe]
+	directory = /mnt/windows/Users/admin/dev/fb/website/fizbee11.github.io
+	directory = /mnt/windows/Users/admin/dev/prof/bench/frappe-bench/apps/erpnext
+	directory = /mnt/windows/Users/admin/dev/fb/dotfiles
