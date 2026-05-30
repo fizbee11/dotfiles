@@ -72,6 +72,8 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
+    . ~/.bash_aliases_private
+
 fi
 
 # enable programmable completion features (you don't need to enable
