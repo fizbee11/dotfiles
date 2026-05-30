@@ -1,0 +1,236 @@
+/* ── CachyOS Waybar Palette ───────────────────────────────── */
+@define-color base      #15191d; 
+@define-color mantle    #0f1215; 
+@define-color crust     #080a0c; 
+
+@define-color text      #e3eaf3; 
+@define-color subtext0  #919ba7; 
+@define-color subtext1  #aab3be;
+
+@define-color surface0  #222930; 
+@define-color surface1  #2e363f; 
+@define-color surface2  #3b444e;
+
+@define-color overlay0  #4c566a;
+@define-color overlay1  #707a8c;
+
+/* The CachyOS Identity Colors */
+@define-color cachy-green #00ffaf; 
+@define-color cachy-blue  #1793d1; 
+
+/* Functional Mapping */
+@define-color blue      @cachy-blue;
+@define-color sapphire  #81a1c1;
+@define-color teal      @cachy-green;
+@define-color green     #43ffaf;
+@define-color red       #ff5555;
+@define-color yellow    #ebcb8b;
+@define-color mauve     @cachy-green; /* Active indicator set to Cachy Green */
+@define-color maroon    #bf616a;
+
+/* ── Global reset ─────────────────────────────────────────── */
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "JetBrainsMono Nerd Font", "Noto Sans", monospace;
+  font-size: 13px;
+  min-height: 0;
+  margin-right: 2px;
+  margin-left: 2px;
+}
+
+/* ── Bar window ───────────────────────────────────────────── */
+window#waybar {
+  background-color: alpha(@base, 0.92);
+  color: @text;
+  border-radius: 12px;
+  border: 1px solid @surface0;
+  transition: background-color 0.3s ease;
+}
+
+window#waybar.hidden {
+  opacity: 0.3;
+}
+
+/* ── Tooltip ──────────────────────────────────────────────── */
+tooltip {
+  background-color: @mantle;
+  color: @text;
+  border: 1px solid @surface1;
+  border-radius: 8px;
+  padding: 6px 10px;
+}
+
+tooltip label {
+  color: @text;
+}
+
+#clock tooltip {
+  font-size: 24px;
+  padding: 20px;
+}
+
+/* ── Common module styles ─────────────────────────────────── */
+#workspaces,
+#window,
+#clock,
+#pulseaudio,
+#network,
+#bluetooth,
+#backlight,
+#battery,
+#tray,
+#custom-cachyos,
+#custom-launcher,
+#custom-power {
+  background-color: transparent;
+  color: @text;
+  padding: 4px 10px;
+  margin: 4px 2px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+/* ── Workspaces ───────────────────────────────────────────── */
+#workspaces {
+  background-color: @surface0;
+  border-radius: 8px;
+  padding: 2px 4px;
+}
+
+#workspaces button {
+  background: transparent;
+  color: @overlay1;
+  padding: 2px 8px;
+  font-size: 22px;
+  transition: all 0.15s ease;
+}
+
+#workspaces button:hover {
+  background: transparent;
+  color: @text;
+}
+
+#workspaces button.active {
+  background: transparent;
+  color: @cachy-green; /* Signature Accent */
+  font-size: 24px;
+  font-weight: bold;
+  
+}
+
+#workspaces button.active label {
+  color: @cachy-green;
+}
+
+#workspaces button.urgent {
+  background: transparent;
+  color: @red;
+}
+
+#workspaces button.empty {
+  background: transparent;
+  color: @surface2;
+}
+
+/* ── Window title ─────────────────────────────────────────── */
+#window {
+  color: @subtext1;
+  font-style: italic;
+  background-color: @surface0;
+}
+
+/* ── Clock ────────────────────────────────────────────────── */
+#clock {
+  background-color: @surface0;
+  color: @cachy-green;
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 4px 14px;
+}
+
+/* ── Audio ────────────────────────────────────────────────── */
+#pulseaudio {
+  color: @cachy-green;
+  background-color: @surface0;
+}
+
+#pulseaudio.muted {
+  color: @red;
+}
+
+/* ── Network ──────────────────────────────────────────────── */
+#network {
+  color: @sapphire;
+  background-color: @surface0;
+}
+
+#network.disconnected {
+  color: @red;
+}
+
+/* ── Bluetooth ────────────────────────────────────────────── */
+#bluetooth {
+  color: @blue;
+  background-color: @surface0;
+}
+
+#bluetooth.connected {
+  color: @cachy-green;
+}
+#backlight {
+  color: @green;
+  background-color: @surface0;
+}
+/* ── Battery ──────────────────────────────────────────────── */
+#battery {
+  color: @green;
+  background-color: @surface0;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: @cachy-green;
+}
+
+@keyframes blink {
+  to { color: @maroon; }
+}
+
+/* ── System tray ──────────────────────────────────────────── */
+#tray {
+  background-color: @surface0;
+  color: red;
+}
+
+
+/* ── Custom: CachyOS ────────────────────────────────────────── */
+#custom-cachyos {
+  color: @cachy-green; /* Make the logo pop */
+  background-color: @surface0;
+  font-size: 22px;
+  padding-left: 8px;
+  padding-right: 13px;
+  padding-bottom: 0px;
+  padding-top: 0px;
+
+
+
+}
+
+#custom-cachyos:hover {
+  background-color: @surface1;
+}
+
+/* ── Custom: Power ────────────────────────────────────────── */
+#custom-power {
+  background-color: @surface0;
+  color: @red;
+  font-size: 16px;
+  padding: 4px 12px;
+}
+
+#custom-power:hover {
+  background-color: @red;
+  color: @base;
+}
