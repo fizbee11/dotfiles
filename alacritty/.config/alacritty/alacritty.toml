@@ -3,7 +3,7 @@ import = ["/home/drew/.config/alacritty/catppuccin/catppuccin-mocha.toml"]
 live_config_reload = true
 
 [window]
-opacity = 0.85
+opacity = 0.70
 blur = true
 decorations = "None"
 startup_mode = "Maximized"
