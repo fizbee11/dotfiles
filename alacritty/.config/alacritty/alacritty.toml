@@ -96,7 +96,7 @@ mouse = "Right"
 action = "Paste"
 
 [terminal.shell]
-program = "/usr/bin/bash"
+program = "/usr/bin/fish"
 
 [window.padding]
 x = 10
