@@ -1,0 +1,138 @@
+source /usr/share/cachyos-fish-config/cachyos-config.fish
+
+source ~/.config/fish/private.fish
+set fish_greeting
+set fish_color_normal brcyan
+set fish_color_command brcyan
+set fish_color_error '#ff6c6b'
+set fish_color_param '#04cc85'
+set fish_color_autosuggestion '#7d7d7d'
+
+# me lazy
+alias c "clear"
+alias k "kubectl"
+alias x "exit"
+alias vi "nvim"
+alias vim "nvim"
+alias rm "trash"
+alias lf "yazi"
+alias cc "clang"
+alias cxx "clang++"
+alias tf "terraform"
+alias unset 'set --erase'
+alias ssh "TERM=xterm-256color $(which ssh)"
+alias xclip "xclip -selection clipboard"
+alias nocaps 'setxkbmap -option "caps:escape"'
+alias celar "clear"
+
+# change ownership of file to oneself
+alias own 'sudo chown $(id -u):$(id -g)'
+
+# get only status code from curl response
+alias cures 'curl -I -s -o /dev/null -w "%{http_code}"'
+
+# utils
+alias dot "tmux-sessionizer ~/.dotfiles"
+
+# assume cli
+alias ac="source /usr/local/bin/assume.fish -c"
+alias at="source /usr/local/bin/assume.fish -t"
+alias assume="source /usr/local/bin/assume.fish"
+
+# abbreviation for cd .. alias
+function multicd
+    set -l length (math (string length -- $argv) - 1)
+    echo cd (string repeat -n $length ../)
+end
+
+abbr --add dotdot --regex '^\.\.+$' --function multicd
+
+# import local image on local k3s
+function k3s-import
+    docker save $argv[1] | sudo k3s ctr images import -
+end
+
+alias cdd 'cd "$(fd -t d . | fzf --prompt="Select directory to jump: " --height=~30% --layout=reverse --border --exit-0)"' # cd with steroids
+
+# better ls
+alias ls "exa -a --icons --group-directories-first"
+alias ll "exa -lah --icons --no-time --git --group-directories-first"
+alias lt "exa -lh --icons --no-user --git -T -L 4 --ignore-glob='.git|node_modules' --group-directories-first --no-permissions --no-filesize --no-time"
+
+# git
+alias gd "git diff"
+alias gs "git status --short"
+alias gl "git log --all --graph --pretty=format:'%C(magenta)%h %C(white) %an  %ar%C(auto)   %D%n%s%n'"
+
+function gpull
+    git pull origin $(git branch | grep '*' | awk '{print $2}') --rebase
+end
+
+function gpush
+    git push origin $(git branch | grep '*' | awk '{print $2}')
+end
+
+## git worktree
+alias gls "git worktree list"
+alias gadd "git worktree add"
+alias gmv "git worktree move"
+alias grm "git worktree remove"
+
+# docker
+alias dps "docker ps"
+alias dcd "docker-compose down"
+alias dcu "docker-compose up -d"
+
+# kubernetes
+alias kns "kubens | fzf --prompt='Select namespace: ' --height=~50% --layout=reverse --border | xargs kubens"
+alias kctx "kubectx | fzf --prompt='Select context: ' --height=~50% --layout=reverse --border | xargs kubectx"
+
+
+# TMUX
+alias tls  "tmux ls"              # lists currently running sessions
+alias ta   "tmux a"               # attach to any of running session
+alias tnew "tmux new -s"          # creates new tmux session
+alias tkl  "tmux kill-server"     # kills all tmux sessions
+alias tk1  "tmux kill-session -t" # kill specific running session ( specify session name after this command )
+
+# sessionizer script
+bind \cf "tmux-sessionizer"
+
+# arrow left and right on alt + h/l
+bind \eh backward-char
+bind \el forward-char
+
+# Path variables
+set PATH "$PATH":"$HOME/go/bin"
+set PATH "$PATH":"$HOME/.bun/bin"
+set PATH "$PATH":"$HOME/.krew/bin"
+set PATH "$PATH":"$HOME/.local/bin"
+set PATH "$PATH":"$HOME/.cargo/bin"
+set PATH "$PATH":"$HOME/.cargo/env"
+set PATH "$PATH":"$HOME/.opencode/bin"
+set PATH "$PATH":"$HOME/.linkerd2/bin"
+set PATH "$PATH":"$HOME/.local/scripts"
+set PATH "$PATH":"$HOME/.local/share/fnm"
+set PATH "$PATH":"$HOME/.dev/flutter/bin"
+set PATH "$PATH":"$HOME/.dev/android-studio/bin"
+set PATH "$PATH":"$HOME/.local/share/bob/nvim-bin"
+
+# node stuffs
+set FNM_PATH "/home/r3x/.local/share/fnm"
+if [ -d "$FNM_PATH" ]
+  set PATH "$FNM_PATH" $PATH
+  fnm env | source
+end
+alias p "pnpm"
+alias px "pnpx"
+set -gx PNPM_HOME "/home/r3x/.local/share/pnpm"
+set -gx PATH "$PNPM_HOME" $PATH
+
+# defaults
+export VISUAL="nvim"
+export EDITOR="nvim"
+export TERM="alacritty"
+export KUBECONFIG="$HOME/.kube/config"
+
+# direnv hook fish | source
+
