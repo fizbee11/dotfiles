@@ -1,5 +1,4 @@
 source /usr/share/cachyos-fish-config/cachyos-config.fish
-
 source ~/.config/fish/private.fish
 set fish_greeting
 set fish_color_normal brcyan
@@ -14,7 +13,6 @@ alias k "kubectl"
 alias x "exit"
 alias vi "nvim"
 alias vim "nvim"
-alias rm "trash"
 alias lf "yazi"
 alias cc "clang"
 alias cxx "clang++"
@@ -117,12 +115,26 @@ set PATH "$PATH":"$HOME/.dev/flutter/bin"
 set PATH "$PATH":"$HOME/.dev/android-studio/bin"
 set PATH "$PATH":"$HOME/.local/share/bob/nvim-bin"
 
+# 1. Define a static, persistent socket path for SSH
+set -gx SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/ssh-agent.socket"
+
+# 2. Start the agent safely if it isn't already running
+if not pgrep -u $USER ssh-agent > /dev/null
+    # Remove a stale socket file if it exists from a previous crash
+    rm -f $SSH_AUTH_SOCK
+    # Launch ssh-agent pointing strictly to our socket path
+    # We redirect stdout AND stderr to /dev/null to prevent Rust/CLI pipe panics
+    command ssh-agent -a $SSH_AUTH_SOCK > /dev/null 2>&1 &
+end
+
 # node stuffs
 set FNM_PATH "/home/r3x/.local/share/fnm"
+
 if [ -d "$FNM_PATH" ]
   set PATH "$FNM_PATH" $PATH
   fnm env | source
 end
+
 alias p "pnpm"
 alias px "pnpx"
 set -gx PNPM_HOME "/home/r3x/.local/share/pnpm"
