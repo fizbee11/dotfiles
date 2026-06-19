@@ -31,6 +31,11 @@ alias update='sudo dnf upgrade --refresh && sudo snap refresh && sudo flatpak up
 alias sourcepython='source /opt/python/bin/activate'
 alias sourcebench='source /home/$USER/dev/prof/bench/frappe-bench/env/bin/activate'
 
+#   bw rbw
+alias bwssh='rbw get "${BW_SSH_KEY_ID}" -f "private_key" | ssh-add -'
+alias bwgit='rbw get "${BW_GIT_SSH_KEY_ID}" -f "private_key" | ssh-add -'
+alias bwfb='rbw get "${BW_FB_SSH_KEY_ID}" -f "private_key" | ssh-add -'
+
 
 
 #alias fc='fzf --preview 'bat --style=numbers --color=always {}'| xargs cd'

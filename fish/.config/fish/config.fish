@@ -1,5 +1,7 @@
 source /usr/share/cachyos-fish-config/cachyos-config.fish
-source ~/.config/fish/private.fish
+#source ~/.config/fish/private.fish
+source ~/.env
+source ~/.private_env
 set fish_greeting
 set fish_color_normal brcyan
 set fish_color_command brcyan
@@ -92,6 +94,25 @@ alias ta   "tmux a"               # attach to any of running session
 alias tnew "tmux new -s"          # creates new tmux session
 alias tkl  "tmux kill-server"     # kills all tmux sessions
 alias tk1  "tmux kill-session -t" # kill specific running session ( specify session name after this command )
+
+#   bw rbw
+function bwssh
+    # The -f flag inside the function is passed to rbw
+    # We use an environment variable that you can set in your config.fish
+    rbw get $BW_SSH_KEY_ID -f 'private_key' | ssh-add -
+end
+
+function bwgit 
+    # The -f flag inside the function is passed to rbw
+    # We use an environment variable that you can set in your config.fish
+    rbw get $BW_GIT_SSH_KEY_ID -f 'private_key' | ssh-add -
+end
+function bwfb
+    # The -f flag inside the function is passed to rbw
+    # We use an environment variable that you can set in your config.fish
+    rbw get $BW_FB_SSH_KEY_ID -f 'private_key' | ssh-add -
+end
+
 
 # sessionizer script
 bind \cf "tmux-sessionizer"
