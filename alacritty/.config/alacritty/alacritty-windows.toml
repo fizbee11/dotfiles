@@ -97,7 +97,7 @@ action = "Paste"
 
 [terminal]
 
-shell = { program = "C:\\Windows\\System32\\wsl.exe", args = ["-d", "Ubuntu-2404"] }
+shell = { program = "C:\\Windows\\System32\\wsl.exe", args = ["-d", "Ubuntu-2404", "] }
 [window.padding]
 x = 10
 y = 10
