@@ -1,4 +1,4 @@
-source /usr/share/cachyos-fish-config/cachyos-config.fish
+#source /usr/share/cachyos-fish-config/cachyos-config.fish
 #source ~/.config/fish/private.fish
 source ~/.env
 source ~/.private_env
