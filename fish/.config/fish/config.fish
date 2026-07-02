@@ -87,7 +87,8 @@ alias dcu "docker-compose up -d"
 alias kns "kubens | fzf --prompt='Select namespace: ' --height=~50% --layout=reverse --border | xargs kubens"
 alias kctx "kubectx | fzf --prompt='Select context: ' --height=~50% --layout=reverse --border | xargs kubectx"
 
-
+# minio cli
+alias mc "mcli"
 # TMUX
 alias tls  "tmux ls"              # lists currently running sessions
 alias ta   "tmux a"               # attach to any of running session
