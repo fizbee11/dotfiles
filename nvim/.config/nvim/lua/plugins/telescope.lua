@@ -53,7 +53,29 @@ return { -- Fuzzy Finder (files, lsp, etc)
       --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
       --   },
       -- },
-      -- pickers = {}
+      pickers = {
+        find_files = {
+          find_command = {
+            "rg",
+            "--files",
+            "--hidden",
+            -- Ignore version control and system junk
+            "--no-ignore", -- Tells ripgrep to completely bypass .gitignore files
+            "--glob", "!**/.git/*",
+            "--glob", "!**/.idea/*",
+            "--glob", "!**/.vscode/*",
+            "--glob", "!**/node_modules/*",
+            "--glob", "!**/.DS_Store",
+            -- Ignore common package/build artifacts
+            "--glob", "!**/target/*",
+            "--glob", "!**/__pycache__/*",
+
+            "--glob", "!**/dist/*",
+            "--glob", "!**/.next/*"
+          },
+
+        }
+      },
       extensions = {
         ['ui-select'] = {
           require('telescope.themes').get_dropdown(),
