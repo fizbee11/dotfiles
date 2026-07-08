@@ -2,9 +2,9 @@
 return {
 	"CRAG666/betterTerm.nvim",
 	keys = {
-		{ "<C-j>", desc = "Toggle terminal" },
-		{ "<C-PageUp>", mode = { "n", "t" }, desc = "Next terminal" },
-		{ "<C-PageDown>", mode = { "n", "t" }, desc = "Prev terminal" },
+		{ "<C-j>",        desc = "Toggle terminal" },
+		{ "<C-PageUp>",   mode = { "n", "t" },     desc = "Next terminal" },
+		{ "<C-PageDown>", mode = { "n", "t" },     desc = "Prev terminal" },
 	},
 	opts = {
 		position = "bot",
@@ -12,7 +12,7 @@ return {
 		lazy = false,
 		show_tabs = true,
 		new_tab_mapping = "<C-t>",
-		jump_tab_mapping = "<A-$tab>", -- A-1, A-2, etc.
+		-- jump_tab_mapping = "<C-$tab>", -- A-1, A-2, etc.
 		startInserted = true,
 		index_base = 1,
 		predefined = {
