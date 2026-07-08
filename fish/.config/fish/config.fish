@@ -9,6 +9,9 @@ set fish_color_error '#ff6c6b'
 set fish_color_param '#04cc85'
 set fish_color_autosuggestion '#7d7d7d'
 
+# Set up fzf key bindings
+fzf --fish | source
+
 # me lazy
 alias c "clear"
 alias k "kubectl"

@@ -109,7 +109,8 @@ ssh() {
 fastfetch
 
 # BEGIN ANSIBLE MANAGED BLOCK
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# Set up fzf key bindings and fuzzy completion
+eval "$(fzf --bash)"
 # END ANSIBLE MANAGED BLOCK
 source ~/.env
 source ~/.private_env
