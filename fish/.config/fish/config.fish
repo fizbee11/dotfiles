@@ -3,11 +3,22 @@
 source ~/.env
 source ~/.private_env
 set fish_greeting
+fastfetch
 set fish_color_normal brcyan
 set fish_color_command brcyan
 set fish_color_error '#ff6c6b'
 set fish_color_param '#04cc85'
 set fish_color_autosuggestion '#7d7d7d'
+
+# CachyOS-style two-line colorful prompt
+function fish_prompt
+    set -l user_color (set_color -o blue)
+    set -l path_color (set_color -o cyan)
+    set -l symbol_color (set_color -o magenta)
+    set -l reset_color (set_color normal)
+    
+    echo -ne "$user_color"(whoami)"$reset_color@$path_color"(prompt_pwd)"$reset_color\n$symbol_color❯ $reset_color"
+end
 
 # Set up fzf key bindings
 fzf --fish | source
