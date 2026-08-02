@@ -1,4 +1,6 @@
-#source /usr/share/cachyos-fish-config/cachyos-config.fish
+# Exit early for non-interactive sessions (SFTP, SCP, etc.)
+if status is-interactive
+    source /usr/share/cachyos-fish-config/cachyos-config.fish
 #source ~/.config/fish/private.fish
 source ~/.env
 source ~/.private_env
@@ -191,4 +193,5 @@ function last_history_item -d "Get the last executed item from history"
 end
 
 abbr -a !! --position anywhere --function last_history_item
+end
 
