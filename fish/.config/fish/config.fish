@@ -17,7 +17,7 @@ function fish_prompt
     set -l symbol_color (set_color -o magenta)
     set -l reset_color (set_color normal)
     
-    echo -ne "$user_color"(whoami)"$reset_color@$path_color"(prompt_pwd)"$reset_color\n$symbol_color❯ $reset_color"
+    printf "%s@%s\n%s❯ " "$user_color"(whoami)"$reset_color" "$path_color"(string replace "$HOME" "~" $PWD)"$reset_color" "$symbol_color"
 end
 
 # Set up fzf key bindings
@@ -183,4 +183,12 @@ export TERM="alacritty"
 export KUBECONFIG="$HOME/.kube/config"
 
 # direnv hook fish | source
+
+# bangbang: make a function that gets last item in history, and an
+#           abbreviation that uses it wherever you type !!
+function last_history_item -d "Get the last executed item from history"
+    history --max=1
+end
+
+abbr -a !! --position anywhere --function last_history_item
 
