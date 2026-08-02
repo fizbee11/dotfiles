@@ -1,6 +1,8 @@
 # Exit early for non-interactive sessions (SFTP, SCP, etc.)
 if status is-interactive
-    source /usr/share/cachyos-fish-config/cachyos-config.fish
+    if test -f /usr/share/cachyos-fish-config/cachyos-config.fish
+        source /usr/share/cachyos-fish-config/cachyos-config.fish
+    end
 #source ~/.config/fish/private.fish
 source ~/.env
 source ~/.private_env
