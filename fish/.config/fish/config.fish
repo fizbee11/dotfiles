@@ -42,6 +42,7 @@ alias ssh "TERM=xterm-256color $(which ssh)"
 alias xclip "xclip -selection clipboard"
 alias nocaps 'setxkbmap -option "caps:escape"'
 alias celar "clear"
+alias note 'nvim ~/syncthing/notes/Scratchpad.md'
 
 # change ownership of file to oneself
 alias own 'sudo chown $(id -u):$(id -g)'
@@ -50,7 +51,7 @@ alias own 'sudo chown $(id -u):$(id -g)'
 alias cures 'curl -I -s -o /dev/null -w "%{http_code}"'
 
 # utils
-alias dot "tmux-sessionizer ~/.dotfiles"
+alias dot "tmux-sessionizer ~/dotfiles"
 
 # assume cli
 alias ac="source /usr/local/bin/assume.fish -c"
