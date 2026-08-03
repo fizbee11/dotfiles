@@ -1,0 +1,32 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "modules": [
+        "os",
+        "packages",
+        "shell",
+        "wm",
+        "terminal",
+        "cpu",
+        "gpu",
+        "memory",
+        "uptime",
+        {
+            "type": "custom",
+            "format": "────────────────────"
+        },
+        {
+            "type": "command",
+            "shell": "/bin/bash",
+            "key": " ",
+            "keyColor": "#E95420",
+            "text": "/home/asus/.config/fastfetch/difference.sh"
+        },
+        {
+            "type": "command",
+            "shell": "/bin/bash",
+            "key": "fb",
+            "keyColor": "green",
+            "text": "/home/asus/.config/fastfetch/target-task-difference.sh"
+        }
+    ]
+}
