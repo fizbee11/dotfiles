@@ -197,3 +197,8 @@ end
 abbr -a !! --position anywhere --function last_history_item
 end
 
+
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /home/asus/.lmstudio/bin
+# End of LM Studio CLI section
+
