@@ -3,7 +3,7 @@ import = ["/home/asus/dotfiles/alacritty/.config/alacritty/nord.toml"]
 live_config_reload = true
 
 [window]
-opacity = 0.70
+opacity = 0.90
 blur = true
 decorations = "None"
 startup_mode = "Maximized"
