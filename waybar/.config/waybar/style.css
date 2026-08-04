@@ -216,6 +216,20 @@ tooltip label {
   border-radius: 4px;
 }
 
+#custom-gpupower {
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 22px
+}
+
+#custom-gpupower.active {
+  color: @green;
+}
+
+#custom-gpupower.suspended {
+  color: @text;
+}
+
 #custom-power {
   color: @text;
   padding: 4px 12px;

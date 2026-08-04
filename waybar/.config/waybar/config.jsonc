@@ -16,6 +16,7 @@
     "modules-right": [
         "custom/notifications",
         "tray",
+        "custom/gpupower",
         "pulseaudio",
         "battery",
         "custom/power"
@@ -180,6 +181,13 @@
         "exec": "uname -r",
         "interval": "once",
         "on-click": "rofi -show drun"
+    },
+    "custom/gpupower": {
+        "format": "{}",
+        "interval": 2,
+        "return-type": "json",
+        "exec": "~/.config/waybar/scripts/gpu_power_state.sh",
+        "tooltip": true
     },
     "custom/power": {
         "format": "󰐥",
