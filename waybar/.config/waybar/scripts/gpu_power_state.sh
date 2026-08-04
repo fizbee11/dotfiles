@@ -1,19 +1,20 @@
 #!/bin/bash
 
 # NVIDIA GPU Power State Monitor for Waybar
-# Check GPU power state and output JSON for Waybar
+# Check GPU power state via PCI runtime status (safe - doesn't wake GPU)
+# Output JSON for Waybar
 
-GPU_CARD="/sys/class/drm/card1"
-GPU_STATE_FILE="$GPU_CARD/device/power_state"
+PCI_DEVICE="/sys/bus/pci/devices/0000:64:00.0"
+GPU_STATUS_FILE="$PCI_DEVICE/power/runtime_status"
 
-# Check if NVIDIA GPU exists
-if [[ ! -d "$GPU_CARD" ]]; then
+# Check if NVIDIA GPU PCI device exists
+if [[ ! -d "$PCI_DEVICE" ]]; then
     exit 0
 fi
 
-# Read GPU power state
-if [[ -f "$GPU_STATE_FILE" ]]; then
-    STATE=$(cat "$GPU_STATE_FILE" 2>/dev/null | tr -d '\n')
+# Read GPU runtime status (safe to read, doesn't wake GPU)
+if [[ -f "$GPU_STATUS_FILE" ]]; then
+    STATUS=$(cat "$GPU_STATUS_FILE" 2>/dev/null | tr -d '\n')
 else
     exit 0
 fi
@@ -23,8 +24,9 @@ TEXT="󰢮"
 CLASS=""
 COLOR=""
 
-# Determine state and styling
-if [[ "$STATE" == "D0" ]]; then
+# Determine state and styling based on runtime_status
+# "active" = D0 (GPU awake/running), "suspended" = D3cold (GPU suspended)
+if [[ "$STATUS" == "active" ]]; then
     CLASS="active"
     COLOR="#a6e3a1"
 else
@@ -32,13 +34,10 @@ else
     COLOR="#cdd6f4"
 fi
 
-# Get power draw from nvidia-smi if available and GPU active
-TOOLTIP="NVIDIA GPU: ${STATE^^}"
-if [[ "$STATE" == "D0" ]] && command -v nvidia-smi &>/dev/null; then
-    POWER=$(nvidia-smi --query-gpu=power.draw --format=csv,noheader,nounits 2>/dev/null | head -1)
-    if [[ -n "$POWER" ]]; then
-        TOOLTIP="NVIDIA GPU: Active (${POWER}W)"
-    fi
+# Build tooltip with runtime status info
+TOOLTIP="NVIDIA GPU: ${STATUS^^}"
+if [[ "$STATUS" == "active" ]]; then
+    TOOLTIP="NVIDIA GPU: Active"
 fi
 
 # Output JSON for Waybar
