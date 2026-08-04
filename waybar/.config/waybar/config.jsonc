@@ -1,24 +1,23 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 38,
+    "height": 32,
     "spacing": 4,
-    "margin-top": 6,
-    "margin-left": 12,
-    "margin-right": 12,
+    "margin-top": 0,
+    "margin-left": 0,
+    "margin-right": 0,
     "modules-left": [
         "custom/cachyos",
-        "hyprland/workspaces",
-        "hyprland/window"
+        "hyprland/workspaces"
     ],
     "modules-center": [
         "clock"
     ],
     "modules-right": [
+        "custom/notifications",
         "tray",
         "pulseaudio",
         "battery",
-        "custom/notifications",
         "custom/power"
     ],
     // ── Hyprland ──────────────────────────────────────────────────────────
@@ -39,23 +38,17 @@
             "9": "9",
             "10": "10",
             "urgent": "!",
-            "active": "",
+            "active": "■",
             "default": ""
         },
         "persistent-workspaces": {
-            "HDMI-A-1": [
+            "*": [
                 1,
                 2,
                 3,
                 4,
-                5
-            ],
-            "eDP-2": [
-                6,
-                7,
-                8,
-                9,
-                10
+                5,
+                6
             ]
         }
     },
@@ -75,7 +68,7 @@
     // ── Clock ─────────────────────────────────────────────────────────────
     "clock": {
         "format-alt": " {:%H:%M}",
-        "format": "{:%I:%M%p  |  %d-%m-%Y}",
+        "format": "{:%I:%M%p  %d-%m-%Y}",
         "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
         "calendar": {
             "mode": "month",
@@ -98,8 +91,8 @@
     },
     // ── Audio ─────────────────────────────────────────────────────────────
     "pulseaudio": {
-        "format": "{icon}  {volume}%",
-        "format-bluetooth": "󰂯  {volume}%",
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "󰂯 {volume}%",
         "format-bluetooth-muted": "󰂲",
         "format-muted": "󰝟",
         "format-icons": {
@@ -148,10 +141,10 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon}  {capacity}%",
-        "format-charging": "󰂄  {capacity}%",
-        "format-plugged": "󰚥  {capacity}%",
-        "format-alt": "{icon}  {time}",
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󰚥 {capacity}%",
+        "format-alt": "{icon} {time}",
         "format-icons": [
             "󰁺",
             "󰁻",
