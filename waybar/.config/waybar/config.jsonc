@@ -190,7 +190,7 @@
     },
     "custom/power": {
         "format": "󰐥",
-        "on-click": "nohup bash ~/.config/wofi/scripts/wofipowermenu.sh &",
+        "on-click": "nohup bash ~/.config/rofi/scripts/powermenu.sh &",
         "tooltip": false
     },
     "custom/screenshot": {
