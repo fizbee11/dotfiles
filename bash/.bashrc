@@ -75,9 +75,17 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Start ssh-agent if not running
-if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-    eval "$(ssh-agent -s)" > /dev/null
+
+
+# Only create our own agent if the session doesn't already have one.
+if [ -z "${SSH_AUTH_SOCK:-}" ] || ! [ -S "$SSH_AUTH_SOCK" ]; then
+    export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/openssh_agent"
+
+    # Remove a stale socket if present.
+    rm -f "$SSH_AUTH_SOCK"
+
+    # Start a new agent listening on our fixed socket.
+    ssh-agent -a "$SSH_AUTH_SOCK" >/dev/null 2>&1 &
 fi
 
 # Override ssh to rename tmux window before and after SSH

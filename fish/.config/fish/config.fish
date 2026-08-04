@@ -156,19 +156,16 @@ set PATH "$PATH":"$HOME/.dev/flutter/bin"
 set PATH "$PATH":"$HOME/.dev/android-studio/bin"
 set PATH "$PATH":"$HOME/.local/share/bob/nvim-bin"
 
-# 1. Define a static, persistent socket path for SSH
-set -gx SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/ssh-agent.socket"
 
-# 2. Start the agent safely if it isn't already running
-if not pgrep -u $USER ssh-agent > /dev/null
-    # Remove a stale socket file if it exists from a previous crash
-    rm -f $SSH_AUTH_SOCK
-    # Launch ssh-agent pointing strictly to our socket path
-    # We redirect stdout AND stderr to /dev/null to prevent Rust/CLI pipe panics
-    command ssh-agent -a $SSH_AUTH_SOCK > /dev/null 2>&1 &
+
+
+# Only create our own agent if the session doesn't already have one.
+if not set -q SSH_AUTH_SOCK; or not ssh-add -l >/dev/null 2>&1
+    set -gx SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/openssh_agent"
+    rm -f "$SSH_AUTH_SOCK"
+    command ssh-agent -a "$SSH_AUTH_SOCK" >/dev/null 2>&1 &
 end
 
-# node stuffs
 set FNM_PATH "/home/r3x/.local/share/fnm"
 
 if [ -d "$FNM_PATH" ]
