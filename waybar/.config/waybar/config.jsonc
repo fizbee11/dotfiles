@@ -12,10 +12,10 @@
         "hyprland/window"
     ],
     "modules-center": [
-        "clock",
-        "tray"
+        "clock"
     ],
     "modules-right": [
+        "tray",
         "pulseaudio",
         "battery",
         "custom/notifications",
@@ -181,12 +181,12 @@
     },
     // ── Custom ────────────────────────────────────────────────────────────
     "custom/cachyos": {
-        "format": "",
+        "format": "",
         "tooltip": true,
         "tooltip-format": " {}",
         "exec": "uname -r",
         "interval": "once",
-        "on-click": "rofi -show dmenu"
+        "on-click": "rofi -show drun"
     },
     "custom/power": {
         "format": "󰐥",
