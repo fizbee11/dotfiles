@@ -1,4 +1,6 @@
 configuration {
+    click-to-exit: true;
+    kb-cancel: [ Escape, MousePrimary ];
     modes: "window,run,ssh,drun";
     sorting-method: "normal";
     show-icons:true;
@@ -74,7 +76,7 @@ listview {
     background-color:   transparent;
     margin:     12px 0 0;
     columns:    1;
-    lines:      2;
+    lines:      10;
 
     fixed-height: false;
 }
