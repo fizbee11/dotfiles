@@ -1,19 +1,19 @@
+/* Rofi Catppuccin Mocha Theme */
 * {
-  bg0     : #1a1b26;
-  bg1     : #1f2335;
-  bg2     : #24283b;
-  bg3     : #414868;
-  fg0     : #c0caf5;
-  fg1     : #a9b1d6;
-  fg2     : #737aa2;
-  red     : #f7768e;
-  green   : #9ece6a;
-  yellow  : #e0af68;
-  blue    : #7aa2f7;
-  magenta : #9a7ecc;
-  cyan    : #4abaaf;
+  bg0     : #1e1e2e;
+  bg1     : #313244;
+  bg2     : #45475a;
+  bg3     : #585b70;
+  fg0     : #cdd6f4;
+  fg1     : #bac2de;
+  fg2     : #a6adc8;
+  red     : #f38ba8;
+  green   : #a6e3a1;
+  yellow  : #f9e2af;
+  blue    : #89b4fa;
+  magenta : #f5c2e7;
+  cyan    : #94e2d5;
 
-  accent: @red;
+  accent: @blue;
   urgent: @yellow;
 }
-

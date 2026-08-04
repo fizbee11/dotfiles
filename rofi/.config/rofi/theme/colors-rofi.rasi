@@ -1,37 +1,36 @@
-/* Rofi Dark Theme - Refined */
-/* Special colors */
+/* Rofi Catppuccin Mocha Theme */
 * {
-    background:     #0d1117;  /* Deeper, richer dark */
-    foreground:     #e6edf3;  /* Brighter, crisper white */
-    cursor:         #58a6ff;  /* Match blue accent */
+    background:     #1e1e2e;  /* Catppuccin Mocha base */
+    foreground:     #cdd6f4;  /* Catppuccin Mocha text */
+    cursor:         #89b4fa;  /* Catppuccin Mocha blue */
     
-    /* Base16-inspired color palette */
-    color0:         #0d1117;  /* Background */
-    color1:         #ff7b72;  /* Red */
-    color2:         #7ee787;  /* Green */
-    color3:         #ffa657;  /* Orange */
-    color4:         #58a6ff;  /* Blue - primary accent */
-    color5:         #bc8cff;  /* Purple */
-    color6:         #39c5cf;  /* Cyan */
-    color7:         #e6edf3;  /* Light gray */
-    color8:         #1c2128;  /* Subtle gray for items */
-    color9:         #ff7b72;  /* Red bright */
-    color10:        #7ee787;  /* Green bright */
-    color11:        #ffa657;  /* Orange bright */
-    color12:        #79c0ff;  /* Blue bright - lighter variant */
-    color13:        #bc8cff;  /* Purple bright */
-    color14:        #56d4dd;  /* Cyan bright */
-    color15:        #ffffff;  /* Pure white */
+    /* Catppuccin Mocha color palette */
+    color0:         #1e1e2e;  /* base */
+    color1:         #f38ba8;  /* red */
+    color2:         #a6e3a1;  /* green */
+    color3:         #f9e2af;  /* yellow */
+    color4:         #89b4fa;  /* blue */
+    color5:         #f5c2e7;  /* magenta */
+    color6:         #94e2d5;  /* cyan */
+    color7:         #cdd6f4;  /* text */
+    color8:         #313244;  /* surface0 */
+    color9:         #f38ba8;  /* red bright */
+    color10:        #a6e3a1;  /* green bright */
+    color11:        #f9e2af;  /* yellow bright */
+    color12:        #89b4fa;  /* blue bright */
+    color13:        #f5c2e7;  /* magenta bright */
+    color14:        #94e2d5;  /* cyan bright */
+    color15:        #e5e9f0;  /* surface1 */
     
     /* Semantic color aliases */
     bg:             @background;
     fg:             @foreground;
-    bg-alt:         @color8;  /* Slightly lighter for items */
+    bg-alt:         @color8;
     bg-dim:         @color0;
-    fg-dim:         #7d8590;  /* Muted gray text */
+    fg-dim:         #a6adc8;
     fg-bright:      @color15;
     
-    accent:         @color4;  /* Blue accent */
+    accent:         @color4;
     accent-alt:     @color12;
     
     red:            @color1;

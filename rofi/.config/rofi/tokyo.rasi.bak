@@ -1,0 +1,19 @@
+/* Rofi Nord Theme */
+* {
+  bg0     : #2e3440;
+  bg1     : #3b4252;
+  bg2     : #434c5e;
+  bg3     : #4c566a;
+  fg0     : #eceff4;
+  fg1     : #d8dee9;
+  fg2     : #c0c0c0;
+  red     : #bf616a;
+  green   : #a3be8c;
+  yellow  : #ebcb8b;
+  blue    : #5e81ac;
+  magenta : #b48ead;
+  cyan    : #88c0d0;
+
+  accent: @blue;
+  urgent: @yellow;
+}
