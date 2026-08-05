@@ -139,8 +139,8 @@ tooltip label {
 
 /* ── Clock ────────────────────────────────────────────────── */
 #clock {
-/*  font-size: 13px;*/
-  font-weight: 700;
+/*  font-size: 13px;
+  font-weight: 700;*/
   margin: 0 7.5px;
   padding: 4px 10px;
   border-color: red;
@@ -251,4 +251,12 @@ tooltip label {
 #custom-notifications {
   color: @text;
   margin: 0 7.5px;
+}
+#custom-mic.active {
+    color: transparent;
+    font-size: 0px;
+}
+
+#custom-mic.muted {
+    color: @red;
 }

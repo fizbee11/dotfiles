@@ -18,6 +18,7 @@
         "tray",
         "custom/gpupower",
         "pulseaudio",
+        "custom/mic",
         "battery",
         "custom/power"
     ],
@@ -110,7 +111,7 @@
             ]
         },
         "on-click": "pkill pavucontrol || pavucontrol",
-        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click-right": "swayosd-client --output-volume mute-toggle",
         "scroll-step": 5
     },
     // ── Network ───────────────────────────────────────────────────────────
@@ -226,5 +227,10 @@
         "return-type": "json",
         "on-click": "dunstctl set-paused toggle",
         "signal": 8
+    },
+    "custom/mic": {
+        "exec": "wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{if ($3==\"[MUTED]\") print \"{\\\"text\\\":\\\"󰍬\\\",\\\"class\\\":\\\"muted\\\"}\"; else print \"{\\\"text\\\":\\\"󰍬\\\",\\\"class\\\":\\\"active\\\"}\"}'",
+        "return-type": "json",
+        "interval": 1
     }
 }
