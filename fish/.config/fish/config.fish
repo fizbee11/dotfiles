@@ -24,6 +24,10 @@ function fish_prompt
     printf "%s@%s\n%s❯ " "$user_color"(whoami)"$reset_color" "$path_color"(string replace "$HOME" "~" $PWD)"$reset_color" "$symbol_color"
 end
 
+function manuscript
+    flatpak run --file-forwarding io.gitlab.ilshat_apps.manuscript @@ $argv[1] @@
+end
+
 # Set up fzf key bindings
 fzf --fish | source
 

@@ -112,6 +112,9 @@ ssh() {
     command ssh "$@"
   fi
 }
+manuscript() {
+    flatpak run --file-forwarding io.gitlab.ilshat_apps.manuscript  @@ "$1" @@
+}
 
 
 fastfetch
