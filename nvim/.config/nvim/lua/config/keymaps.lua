@@ -73,6 +73,13 @@ vim.keymap.set("v", "<leader>y", [["+y]])
 
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
+-- Image keymaps for image.nvim and img-clip.nvim
+vim.keymap.set("n", "<leader>ic", ":lua require('image').clear()<CR>", { desc = "Clear all images in current buffer" })
+vim.keymap.set("n", "<leader>ir", ":lua require('image').render()<CR>", { desc = "Refresh images in current buffer" })
+vim.keymap.set("n", "<leader>id", ":lua require('img-clip').delete_image()<CR>", { desc = "Delete image file under cursor" })
+vim.keymap.set("n", "<leader>ii", ":lua require('img-clip').paste_image()<CR>", { desc = "Paste image from clipboard" })
+vim.keymap.set("n", "<leader>if", ":lua require('img-clip').paste_image_from_file()<CR>", { desc = "Paste image from file" })
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
