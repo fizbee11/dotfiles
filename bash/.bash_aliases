@@ -37,6 +37,15 @@ alias bwssh='rbw get "${BW_SSH_KEY_ID}" -f "private_key" | ssh-add -'
 alias bwgit='rbw get "${BW_GIT_SSH_KEY_ID}" -f "private_key" | ssh-add -'
 alias bwfb='rbw get "${BW_FB_SSH_KEY_ID}" -f "private_key" | ssh-add -'
 
+function opencode_server_start {
+    if ! tmux list-sessions -F "#{sess_name}" 2>/dev/null | grep -q "^opencode-server$"; then
+        tmux new -d -s opencode-server 'opencode serve'
+        echo "✓ Created tmux session 'opencode-server'"
+    fi
+    tmux attach -t opencode-server
+}
+alias opencode-server='opencode_server_start'
+
 
 
 #alias fc='fzf --preview 'bat --style=numbers --color=always {}'| xargs cd'

@@ -193,6 +193,15 @@ function last_history_item -d "Get the last executed item from history"
 end
 
 abbr -a !! --position anywhere --function last_history_item
+
+function opencode_server_start
+    if not tmux ls 2>/dev/null | grep -q "opencode-server"
+        tmux new -d -s opencode-server 'opencode serve'
+        echo "✓ Created tmux session 'opencode-server'"
+    end
+    tmux attach -t opencode-server
+end
+alias opencode-server="opencode_server_start"
 end
 
 
