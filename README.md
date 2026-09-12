@@ -1,4 +1,5 @@
 # Dotfiles
+
 This repo contains dotfiles for:
 - Hyprland
 - Waybar
@@ -14,3 +15,5 @@ This repo contains dotfiles for:
 - Ghostty
 - Git
 - Vim
+
+

@@ -1,7 +1,7 @@
 # Agents
 
 This document describes the AI agents configured for this dotfiles repository.
-
+z
 ## Important: Use Stow for Symlinks
 
 This dotfiles repository uses GNU Stow to manage symlinks to `~/.config`. **Never edit files directly in `~/.config`**. Always make changes here in the dotfiles directory, then run:
