@@ -38,6 +38,7 @@ alias ssh "TERM=xterm-256color $(which ssh)"
 alias xclip "xclip -selection clipboard"
 alias nocaps 'setxkbmap -option "caps:escape"'
 alias celar "clear"
+alias oc "opencode"
 
 # change ownership of file to oneself
 alias own 'sudo chown $(id -u):$(id -g)'
@@ -109,6 +110,13 @@ alias ta   "tmux a"               # attach to any of running session
 alias tnew "tmux new -s"          # creates new tmux session
 alias tkl  "tmux kill-server"     # kills all tmux sessions
 alias tk1  "tmux kill-session -t" # kill specific running session ( specify session name after this command )
+
+
+# dirs
+alias dh 'cd /home/$USER/dev/home'
+alias dw 'cd /home/$USER/dev/work'
+alias dp 'cd /home/$USER/dev/prof'
+
 
 #   bw rbw
 function bwssh
