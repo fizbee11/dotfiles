@@ -188,7 +188,11 @@ set -gx PATH "$PNPM_HOME" $PATH
 export VISUAL="nvim"
 export EDITOR="nvim"
 export TERM="alacritty"
-export KUBECONFIG="$HOME/.kube/config"
 
 # direnv hook fish | source
 
+
+# nvm (Node Version Manager) - loaded via bass bash bridge
+if test -d "$HOME/.nvm"
+  bass source ~/.nvm/nvm.sh > /dev/null
+end
