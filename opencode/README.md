@@ -12,6 +12,8 @@ Opencode (https://opencode.ai) configuration managed by Stow.
 | `.local/share/opencode/auth.json` | `dotfiles-private` | provider API keys |
 | `~/dev/home/opencode/.skill-lock.json` | Syncthing (`~/dev`) | downloaded-skills manifest (reinstall checklist) |
 | `~/dev/home/opencode/AGENTS.md` | Syncthing (`~/dev`) | global ambient instructions |
+| `~/dev/home/opencode/skills/` | Syncthing (`~/dev`) | skills I create for the user (imported via the config `skills` field) |
+| `~/dev/home/opencode/skills` | Syncthing (`~/dev`) | hand-written skills I create (imported via the config `skills` field) |
 
 The private `opencode.jsonc` imports the global `AGENTS.md` from the
 Syncthing-synced `~/dev/home/opencode` via its `instructions` field.
@@ -23,7 +25,10 @@ Intentionally **not** tracked (regenerated at runtime): the opencode binary
 and `node_modules` under `~/.opencode` and `~/.config/opencode`,
 `opencode.db`, logs, snapshots, prompt history, model catalog cache,
 `~/.agents/skills/` (downloaded agent skills — reinstalled from the synced
-manifest, step 5), and per-project `.opencode/` dirs (those live in `~/dev`).
+manifest, step 5), the plugin-SDK artifacts in `~/.config/opencode/`
+(`package.json`, `package-lock.json`, `node_modules` — opencode regenerates
+them on plugin install and gitignores them itself), and per-project
+`.opencode/` dirs (those live in `~/dev`).
 
 ## Restore on a new machine
 
