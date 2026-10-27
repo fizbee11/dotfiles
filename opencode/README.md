@@ -10,17 +10,20 @@ Opencode (https://opencode.ai) configuration managed by Stow.
 | `.config/opencode/opencode.jsonc` | `dotfiles-private` | provider endpoints (LAN IPs / tailnet hosts) |
 | `.config/opencode/service.json` | `dotfiles-private` | contains a password |
 | `.local/share/opencode/auth.json` | `dotfiles-private` | provider API keys |
-| `~/dev/home/opencode/skills` | Syncthing (`~/dev`) | global agent skills |
+| `~/dev/home/opencode/.skill-lock.json` | Syncthing (`~/dev`) | downloaded-skills manifest (reinstall checklist) |
 | `~/dev/home/opencode/AGENTS.md` | Syncthing (`~/dev`) | global ambient instructions |
 
-The private `opencode.jsonc` imports the skills and AGENTS.md from the
-Syncthing-synced `~/dev/home/opencode` via its `skills` and `instructions`
-fields — see `~/dev/home/opencode/README.md` for that side.
+The private `opencode.jsonc` imports the global `AGENTS.md` from the
+Syncthing-synced `~/dev/home/opencode` via its `instructions` field.
+Downloaded skills are **not** synced — they are reinstalled on a new
+machine from the synced manifest (`npx skills`; step 5 below, and
+`~/dev/home/opencode/README.md`).
 
 Intentionally **not** tracked (regenerated at runtime): the opencode binary
 and `node_modules` under `~/.opencode` and `~/.config/opencode`,
-`opencode.db`, logs, snapshots, prompt history, model catalog cache, and
-per-project `.opencode/` dirs (those live in `~/dev`).
+`opencode.db`, logs, snapshots, prompt history, model catalog cache,
+`~/.agents/skills/` (downloaded agent skills — reinstalled from the synced
+manifest, step 5), and per-project `.opencode/` dirs (those live in `~/dev`).
 
 ## Restore on a new machine
 
@@ -40,7 +43,13 @@ stow -d ~/dotfiles-private opencode
 #    the individual files into them instead of replacing the dirs
 mkdir -p ~/.config/opencode ~/.local/share/opencode
 
-# 5. restore ~/dev (Syncthing) for skills + AGENTS.md, then
+# 5. restore ~/dev (Syncthing) for AGENTS.md + the skills manifest, then
+#    relink the manifest and reinstall the downloaded skills from it
+mkdir -p ~/.agents
+ln -s ../dev/home/opencode/.skill-lock.json ~/.agents/.skill-lock.json
+npx skills add mattpocock/skills -g -a opencode -y
+npx skills add Agents365-ai/drawio-skill -g -a opencode -y
+npx skills add vercel-labs/skills -g -a opencode -y
 chmod 600 ~/.config/opencode/service.json ~/.local/share/opencode/auth.json
 ```
 
