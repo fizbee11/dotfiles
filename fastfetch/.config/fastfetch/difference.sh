@@ -1,10 +1,10 @@
 #!/bin/bash
-time2="08/01/2028 12:00AM"
+time2="11/04/2028 12:00AM"
 let current=$(date +%s)
 timestamp2=$(date -d "$time2" +%s)
 time_difference=$((timestamp2 - current))
 days_difference=$((time_difference / 86400))
-time1="08/01/2026 12:00AM"
+time1="11/04/2026 12:00AM"
 let current=$(date +%s)
 timestamp1=$(date -d "$time1" +%s)
 time_progression=$((current - timestamp1))

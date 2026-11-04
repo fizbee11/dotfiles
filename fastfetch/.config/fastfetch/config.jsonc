@@ -154,15 +154,15 @@
         {
             "type": "command",
             "shell": "/bin/bash",
-            "key": "╭─ ",
-            "keyColor": "#E95420",
+            "key": "╭─ ",
+            "keyColor": "green",
             "text": "/home/asus/.config/fastfetch/difference.sh"
         },
         {
             "type": "command",
             "shell": "/bin/bash",
             "key": "╰─fb",
-            "keyColor": "#E95420",
+            "keyColor": "green",
             "text": "/home/asus/.config/fastfetch/target-task-difference.sh"
         }
     ]
