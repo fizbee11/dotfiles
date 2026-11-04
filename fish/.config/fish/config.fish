@@ -7,7 +7,7 @@ if status is-interactive
 source ~/.env
 source ~/.private_env
 set fish_greeting
-fastfetch
+#fastfetch
 set fish_color_normal brcyan
 set fish_color_command brcyan
 set fish_color_error '#ff6c6b'
