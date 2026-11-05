@@ -118,6 +118,9 @@ alias ta   "tmux a"               # attach to any of running session
 alias tnew "tmux new -s"          # creates new tmux session
 alias tkl  "tmux kill-server"     # kills all tmux sessions
 alias tk1  "tmux kill-session -t" # kill specific running session ( specify session name after this command )
+alias tfb "tmux -L fb"
+alias thome "tmux -L home"
+alias twork "tmux -L work"
 
 #   bw rbw
 function bwssh
