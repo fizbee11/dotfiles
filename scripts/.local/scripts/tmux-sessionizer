@@ -9,7 +9,7 @@ else
         ~/dev/fb \
         ~/dev/home \
         ~/dev/prof \
-        ~/asus/Syncthing/ \
+        ~/$(USER)/Syncthing/ \
         -mindepth 1 -maxdepth 1 -type d | fzf --prompt="Select project: " --height=~80% --layout=reverse --border --exit-0)
 fi
 
