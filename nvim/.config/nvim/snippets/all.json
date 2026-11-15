@@ -1,0 +1,7 @@
+{
+  "Sample snippet": {
+    "prefix": "sample",
+    "body": ["vscode-format snippet from the dotfiles repo: $1"],
+    "description": "Example snippet - replace with your own"
+  }
+}

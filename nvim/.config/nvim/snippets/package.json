@@ -1,0 +1,12 @@
+{
+  "name": "personal-snippets",
+  "description": "Personal vscode-format snippets loaded by LuaSnip",
+  "contributes": {
+    "snippets": [
+      {
+        "language": ["all"],
+        "path": "./all.json"
+      }
+    ]
+  }
+}
