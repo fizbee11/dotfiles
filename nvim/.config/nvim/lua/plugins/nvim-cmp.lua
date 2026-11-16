@@ -30,6 +30,17 @@ return { -- Autocompletion
 						from_vscode.lazy_load({
 							paths = { "./snippets" },
 						})
+						-- per-project snippets
+						local function load_project_snippets()
+							local dir = vim.fn.getcwd() .. "/.vscode"
+							if vim.fn.isdirectory(dir) == 1 then
+								from_vscode.lazy_load({ paths = { dir } })
+							end
+						end
+
+						load_project_snippets() -- covers the case where VimEnter already fired
+						vim.api.nvim_create_autocmd("DirChanged",
+							{ callback = load_project_snippets })
 					end,
 				},
 			},
