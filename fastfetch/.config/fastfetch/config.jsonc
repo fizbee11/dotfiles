@@ -64,15 +64,15 @@
         {
             "type": "command",
             "shell": "/bin/bash",
-            "key": " CachyOS",
+            "key": " Challenge",
             "keyColor": "cyan",
-            "text": "~/.config/fastfetch/difference.sh",
+            "text": "~/.config/fastfetch/os-challenge.sh",
         },
         {
             "type": "command",
             "shell": "/bin/bash",
             "key": " FL & ERP",
-            "text": "~/.config/fastfetch/target-task-difference.sh",
+            "text": "~/.config/fastfetch/task-challenge.sh",
             "keyColor": "cyan"
         },
     ]
