@@ -64,7 +64,7 @@
         {
             "type": "command",
             "shell": "/bin/bash",
-            "key": " Challenge",
+            "key": "OS Challenge",
             "keyColor": "cyan",
             "text": "~/.config/fastfetch/os-challenge.sh",
         },
