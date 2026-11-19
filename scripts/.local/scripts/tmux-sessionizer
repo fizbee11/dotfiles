@@ -1,15 +1,24 @@
 #!/usr/bin/env bash
 
+project_dirs=(
+    ~/dev/work
+    ~/dev/data
+    ~/dev/fb
+    ~/dev/home
+    ~/dev/prof
+    ~/Syncthing
+)
+
+# find errors on paths that don't exist, so keep only the ones present
+existing_dirs=()
+for dir in "${project_dirs[@]}"; do
+    [[ -d $dir ]] && existing_dirs+=("$dir")
+done
+
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find \
-        ~/dev/work \
-        ~/dev/data \
-        ~/dev/fb \
-        ~/dev/home \
-        ~/dev/prof \
-        ~/$(USER)/Syncthing/ \
+    selected=$(find "${existing_dirs[@]}" \
         -mindepth 1 -maxdepth 1 -type d | fzf --prompt="Select project: " --height=~80% --layout=reverse --border --exit-0)
 fi
 
