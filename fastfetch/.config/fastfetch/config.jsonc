@@ -154,16 +154,23 @@
         {
             "type": "command",
             "shell": "/bin/bash",
-            "key": "╭─ ",
-            "keyColor": "green",
-            "text": "/home/asus/.config/fastfetch/difference.sh"
+            "key": "╭─",
+            "keyColor": "cyan",
+            "text": "~/.config/fastfetch/os-challenge.sh"
         },
         {
             "type": "command",
             "shell": "/bin/bash",
-            "key": "╰─fb",
-            "keyColor": "green",
-            "text": "/home/asus/.config/fastfetch/target-task-difference.sh"
+            "key": "├─󰗃",
+            "keyColor": "cyan",
+            "text": "~/.config/fastfetch/yt-challenge.sh"
+        },
+        {
+            "type": "command",
+            "shell": "/bin/bash",
+            "key": "╰─",
+            "text": "~/.config/fastfetch/task-challenge.sh",
+            "keyColor": "cyan"
         }
     ]
 }

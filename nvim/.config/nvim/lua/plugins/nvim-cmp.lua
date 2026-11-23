@@ -15,15 +15,34 @@ return { -- Autocompletion
 				return "make install_jsregexp"
 			end)(),
 			dependencies = {
-				-- `friendly-snippets` contains a variety of premade snippets.
+				-- `friendly-snippets` contains a variety of premade vscode-format snippets.
 				--    See the README about individual language/framework/plugin snippets:
 				--    https://github.com/rafamadriz/friendly-snippets
-				-- {
-				--   'rafamadriz/friendly-snippets',
-				--   config = function()
-				--     require('luasnip.loaders.from_vscode').lazy_load()
-				--   end,
-				-- },
+				{
+					"rafamadriz/friendly-snippets",
+					config = function()
+						local from_vscode = require("luasnip.loaders.from_vscode")
+						-- Load all vscode snippet-packages found on the runtimepath.
+						-- This is what picks up friendly-snippets.
+						from_vscode.lazy_load()
+						-- Load personal vscode snippets from this repo
+						-- (`nvim/.config/nvim/snippets/`, see its README).
+						from_vscode.lazy_load({
+							paths = { "./snippets" },
+						})
+						-- per-project snippets
+						local function load_project_snippets()
+							local dir = vim.fn.getcwd() .. "/.vscode"
+							if vim.fn.isdirectory(dir) == 1 then
+								from_vscode.lazy_load({ paths = { dir } })
+							end
+						end
+
+						load_project_snippets() -- covers the case where VimEnter already fired
+						vim.api.nvim_create_autocmd("DirChanged",
+							{ callback = load_project_snippets })
+					end,
+				},
 			},
 		},
 		"saadparwaiz1/cmp_luasnip",

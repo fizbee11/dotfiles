@@ -47,6 +47,7 @@ alias xclip "xclip -selection clipboard"
 alias nocaps 'setxkbmap -option "caps:escape"'
 alias celar "clear"
 alias note 'nvim ~/syncthing/notes/Scratchpad.md'
+alias oc "opencode"
 
 # change ownership of file to oneself
 alias own 'sudo chown $(id -u):$(id -g)'
@@ -122,6 +123,13 @@ alias tfb "tmux -L fb"
 alias thome "tmux -L home"
 alias twork "tmux -L work"
 
+
+# dirs
+alias dh 'cd /home/$USER/dev/home'
+alias dw 'cd /home/$USER/dev/work'
+alias dp 'cd /home/$USER/dev/prof'
+
+
 #   bw rbw
 function bwssh
     # The -f flag inside the function is passed to rbw
@@ -189,7 +197,6 @@ set -gx PATH "$PNPM_HOME" $PATH
 export VISUAL="nvim"
 export EDITOR="nvim"
 export TERM="alacritty"
-export KUBECONFIG="$HOME/.kube/config"
 
 # direnv hook fish | source
 
@@ -216,3 +223,8 @@ end
 set -gx PATH $PATH /home/asus/.lmstudio/bin
 # End of LM Studio CLI section
 
+
+# nvm (Node Version Manager) - loaded via bass bash bridge
+if test -d "$HOME/.nvm"
+  bass source ~/.nvm/nvm.sh > /dev/null
+end
